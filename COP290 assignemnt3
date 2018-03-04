@@ -1,0 +1,18 @@
+Class Description and Documentation :
+
+Summary (What to do) - Write the whole code into individual files, this way we will know what libraries we would require to use, we can make up a automatic documentation given that we already documented each class on the basis of its uses.
+
+
+1. Documentation of our class (in Doxygen) - 
+
+
+2. Libraries used (purpose i.e, why it is used?) -
+
+- Armadillo // A linear algebra library
+- Math
+- Graphics
+- QtPainter // for 2D
+- Qt Canvas 3D 	//for 3D
+
+
+3. How will we organize our code into multiple files?
