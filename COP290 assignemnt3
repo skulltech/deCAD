@@ -1,18 +1,32 @@
+COP290 - Assignment 3
+
 Class Description and Documentation :
 
-Summary (What to do) - Write the whole code into individual files, this way we will know what libraries we would require to use, we can make up a automatic documentation given that we already documented each class on the basis of its uses.
 
 
 1. Documentation of our class (in Doxygen) - 
 
+-> attached zipped folder namely - 'Documentation DrawBetter'. (Open the index.html in any browser).
 
 2. Libraries used (purpose i.e, why it is used?) -
 
-- Armadillo // A linear algebra library
-- Math
-- Graphics
-- QtPainter // for 2D
-- Qt Canvas 3D 	//for 3D
+
+	1. Armadillo  
+	 - A linear algebra library; it will be used to deal with the efficient classes for matrix, vectors, and similar other mathematical entities manipulation. it provides high-level syntax (API). 
+
+	2. Math
+	 - It will be used since it contains a set of functions to compute common mathematical operations and transformations. It is indeed necessary for minor mathematical calculations.
+
+	3. Graphics
+	 - A graphics library for utilizing the containing functions.
+
+	4. Qt classes - 
+	for e.g.  QtPainter (for the 2D graphic pad), Qt Canvas 3D (for 3D model manipulations), QtGui/QGuiApplication, QtCore/QDir, QtQuick/QQuickView, QtQml/QQmlEngine (for Graphic user interface methods).
+
+	Others - and some more usual libraries that may be needed while writing actual code.
+
 
 
 3. How will we organize our code into multiple files?
+
+Our code will majorly contain 3 files, each one for one class, namely drawingPad, io, and drawBetter. By doing this our code will be much more readable and compatible with any other coder (hypothetically). 
