@@ -30,3 +30,9 @@ Class Description and Documentation :
 3. How will we organize our code into multiple files?
 
 Our code will majorly contain 3 files, each one for one class, namely drawingPad, io, and drawBetter. By doing this our code will be much more readable and compatible with any other coder (hypothetically). 
+
+
+
+
+#include <QGraphicsPixmapItem>
+#include <QPainter>
