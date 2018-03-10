@@ -1,6 +1,7 @@
 #include <iostream>
 #include <set>
 #include <tuple>
+#include <edge.h>
 
 using namespace std;
 
@@ -26,6 +27,9 @@ class vertex{
 
 	vertex(float a, float b, float c){
 		v = make_tuple(a,b,c);
+	}
+	void printVertex(){
+		cout<<(get<0>(v))<<", "<<(get<1>(v))<<", "<<(get<2>(v))<<endl;
 	}
 };
 
@@ -81,7 +85,9 @@ int main(){
 	plane p1;
 
 	algorithms a1;
-	a1.algorithm2Dto3D(v1, e1, p1)
+	vertex res = a1.algorithm2Dto3D(v1, e1, p1);
+
+	cout<<"resultant vertex is"<< 
 
 	return 0;
 }
