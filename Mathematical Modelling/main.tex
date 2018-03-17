@@ -1,0 +1,195 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Step-I : Mathematical Modeling}								% Title
+\author{Ankit Solanki and Sumit Ghosh}								% Author
+\date{\today}											% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.05]{IITD.png}\\[1.0 cm]	% University Logo
+    \textsc{\LARGE Indian Institute of Technology, Delhi}\\[2.0 cm]	% University Name
+	\textsc{\Large COP290}\\[0.5 cm]				% Course Code
+	\textsc{\large Design Practices}\\[0.5 cm]				% Course Name
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+			\emph{Author:}\\
+			\theauthor
+			\end{flushleft}
+			\end{minipage}~
+			\begin{minipage}{0.4\textwidth}
+			\begin{flushright} \large
+			\emph{Student Number:}
+			2016CS50401, 2016CS50400
+            % Your Student Number
+		\end{flushright}
+	\end{minipage}\\[2 cm]
+	
+	{\large \thedate}\\[2 cm]
+ 
+	\vfill
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Step I: Modeling and analysis}
+\subsection{Forming 2D projections given a 3D model object}
+\subsubsection{Abstract Procedure}
+
+3D projection is any method of mapping three-dimensional points to a two-dimensional plane. In this case, we will make a 2D projection of a 3D model on a given equation of a plane.
+
+We are given a set of vertices V and a set of edges E, such that if $\exists$(e $\in$ E) then e can be written as (v1,v2) where v1,v2 $\in$ V. 
+
+We will construct a set W consisting of vectors from origin \textbf{O} to corresponding vertices in V (Thus, cardinality(V) = cardinality(W)).
+
+$\forall$ v $\in$ W, we take its projection on a given plane P, hence effectively we construct a set of vectors (say $\phi$), where each vector starts from \textbf{O} to a point on plane P, which is the projection of the corresponding vertex in V, and we also contruct a set of vertices, named $\Omega$, which consists of the projected vertices of the corresponding set V.
+
+Evidently, we can construct a set of edges (say $\psi$), such that $\forall $ e $\in$ $\psi$, e can be represented into (v1,v2) where v1,v2 $\in$ $\phi$, exactly similar to the set V and E, defined above.
+
+For the sake of simplification, we can say that the sets $\Psi$, $\phi$ and $\Omega$, are the corresponding sets in 2D of the sets E, W and V in 3D model.
+
+\subsubsection{What is given?}
+$\cdot$ A co-ordinate frame of reference with respect to Origin \textbf{O} where any point can be represented as (x,y,z) which corresponds to X,Y and Z axes respectively chosen as 3 mutually perpendicular lines.
+
+$\cdot$ A general equation of a plane (say \textbf{P}) as ax+by+cz+d=0 
+
+$\cdot$ A 3-D model object in terms of a set of vertices V and corresponding edges E ($\forall$ e $\in$ E, e can be written as (v1,v2) where v1,v2 $\in$ E)
+
+\subsubsection{Mathematical Approach}
+
+As mentioned in Abstract subsection, we can construct a set W, consists of vectors from origin to corresponding vertex in given set V;
+
+Let us consider one such vertex in set V (say v1), whose vector from origin can be denoted as \textbf{$\upsilon$}, its projection on given plane P(with normal vector as \textbf{n}) can be formulated as - 
+
+\textbf{$Proj_{n}(v) = \dfrac{(\upsilon.n)}{(n.n)}\textbf{n}$}
+
+the vector ($\upsilon$ - $Proj_{n}(v)$) starts from \textbf{O} and ends at a point (say Q) on the given plane P, the set of all such points can be shown as $\phi$ and evidently, is the projection of all corresponding points in set V on the plane P.
+
+\subsubsection{Result Analysis}
+
+After the projection of all the vertices in set V on a plane P, we get a corresponding set of vertices which lie on that plane P.
+
+Considering, the set of edges, E, where e $\in$ E can be represented as (v1,v2), such that v1,v2 $\in$ V (the set of vertices of the given model in the 3-Dimensional frame of reference), as by our mathematical procedure, we get a set $\Omega$, which consists of the corresponding vertices on the plane P. Without losing generalty, we can say that all the edges in set E has been projected on the plane P, with the new set named as $\Psi$.
+
+\subsection{Forming 3D model given 3 orthographic projections}
+
+\subsubsection{What is Given?}
+We have three 2D projections, each projection being a graph, which consists of two sets V and E, which are the vertex and edge set respectively of the projection under consideration.
+
+Here, the set V contains elements of the form (x, y), which signify coordinates (or coordinate vector considering (0, 0) as the origin).
+
+\subsubsection{In what form outputs is represented?}
+A 3D model-object, which is a graph containing two sets V and E, where V consists of all the vertices in the model and E consists of all the possible edges in the model.
+
+\subsubsection{What are the Constraints?}
+For a particular problem, we will have three 2D projections, namely P1, P2, P3, and a 3D model, say M. 
+
+Now, we know there exists a bijection between the vertex sets of any two of P1, P2, P3 and M, since each point in labeled thus, it will have its existence in model M and a projection of it in all of the labeled planes.
+
+
+As we have a bijection between the the vertex sets of any two of the 2D projections, we can assign a label to each element of those sets. That is, for a same label, there will be one element (of the form (x, y), i.e point) from each of the three projections. 
+
+
+\subsubsection{Algorithm - Mathematical Model}
+$\cdot$ Getting the vertex set of 3D model - 
+
+For each 2D projection,
+Let the first element of the vertex set v be (x1, y1). 
+Now, we add (-x1, -y1) to each and every element of v, and get a new vertex set, lets call it V'.
+
+Now, for the first projection, we create another vertex set, whose elements are mapped in bijection with the elements of the vertex set of the projection as (x, y) $\rightarrow$ (0, x, y).
+Similarly, for the second projection, we create a mapping as (x, y) $\rightarrow$ (x, o, y).
+And for the third, the mapping being (x, y) $\rightarrow$ (x, y, 0).
+
+Now, for a particular labeled point, let the projected points be, (0, y, z), (x, 0, z), and (x, y, 0). Then the corresponding point in 3D will be (x, y, z). Thus, we can get the vertex set of the 3D model.
+
+$\cdot$ Getting the edge set of the 3D model -
+
+As we have a bijection between the the vertex sets of any two of the considered 2D projections, we can assign a label to each element of those sets. That is, for a same label, there will be one element (of the form (x, y), i.e point) from each of the three projections. 
+
+$\cdot$ Now, for each labeled point, 
+	Take the set of all edges from that point from the edge sets of the three projections, and take the intersection of those three sets.
+    
+Once we get all these edges, we take the union of them. And that would be the preliminary version of the target edge set. We need to filter out some edges which are not possible according to the following rules -
+
+\begin{enumerate}
+\item When an edge is adjacent to more than two faces, at most two faces can be true, the rest must be pseudo.
+\item When two faces intersect, only one of them can be true. (If they were both true, the intersecting edge would have four adjacent faces which can not be possible).
+\item An edge which projects onto a dashed line in a view, but which has no candidate face to occlude it, is false (as per the definition of the dashed lines)
+\item When an edge is adjacent to only one face, both the edge and face are false.
+\item When an edge is adjacent to exactly two coplanar faces, the edge is false and the coplanar faces can be merged.
+\item If a true edge is adjacent to exactly two non-coplanar faces, then these faces are both true. (If either of the adjacent faces were false, it would contradict rule 4).
+\item A face that is coplanar and adjacent to a true face, when their shared edge projects onto a solid line and is not occluded in a view, is a false face. (the shared edge is needed to project onto the solid line because any other edge would be occluded by the true face. If the candidate face was true, rules 5 and 4 would apply and the shared edge would be deleted).
+
+\end{enumerate}
+
+\subsection{How many views are necessary?}
+
+For the formation of a 3D model-object, 3 orthographic projections are necessary in order to get an unique object.
+
+\subsection{How many views are sufficient?}
+
+Two orthographic projections are sufficient for the formation of a 3D model, but it may give an unique solution or it may give a set of possible 3D model objects.
+
+\newpage
+
+% \section{Step II: Software requirement specification}
+% \newpage
+
+% \section{Step III: Software design document}
+% \newpage
+
+% \section{Step IV: Implementation and software documentation}
+% \newpage
+
+% \section{Step V: Testing and fine tuning}
+% \newpage
+
+% \section{Step VI: Report}
+% \newpage
+% * <ankit03june@gmail.com> 2018-01-16T19:00:53.688Z:
+%
+% ^.
+% * <ankit03june@gmail.com> 2018-01-16T19:00:45.810Z:
+%
+% ^.
+% \bibliographystyle{plain}
+% \bibliography{biblist}
+
+\end{document}
