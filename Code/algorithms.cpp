@@ -134,13 +134,6 @@ class algorithms {
 
 int main() {
 
-	vertex v1(2,2,2); //will be a set
-	plane p1(1,2,3,4);
-	v1.printVertex();
-	p1.printNormal();
-	algorithms a1;
-	vertex res = a1.algorithm2Dto3D(v1, p1);
-	cout<<(get<0>(res.v));
 
 	return 0;
 }
