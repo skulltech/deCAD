@@ -56,7 +56,7 @@ class projection {
 public:
 	vector<point> vertices;
 	vector<tuple<int, int>> edges;
-}
+};
 
 
 class model {
@@ -68,7 +68,7 @@ public:
 		vertices = v;
 		edges = e;
 	}
-}
+};
 
 class algorithms {
 	public:

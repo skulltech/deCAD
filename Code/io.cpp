@@ -6,6 +6,7 @@
 using namespace std;
 
 
+
 class vertex {
 	public:
 	tuple <float,float,float> v;
@@ -59,7 +60,6 @@ public:
 	vector<tuple<int, int>> edges;
 };
 
-
 class model {
 public:
 	vector<vertex> vertices;
@@ -70,6 +70,30 @@ public:
 		edges = e;
 	}
 };
+
+class algorithms {
+	public:
+	/**
+	* Algorithm implementation for converting given 3D model 
+	* into a 2D projection on the given plane.
+	*/
+	model model_to_projections(model m, plane p) {
+		vector<vertex> v1;
+
+		for(vertex v: m.vertices) {
+			float temp1=(get<0>(p.normal)*(get<0>(v.v))+(get<1>(p.normal)*(get<1>(v.v)))+(get<2>(p.normal))*(get<2>(v.v)));
+			float temp2=(p.square_normal());
+
+			vertex projw((temp1/temp2)*(get<0>(p.normal)),(temp1/temp2)*(get<1>(p.normal)),(temp1/temp2)*(get<2>(p.normal)));
+
+			v1.push_back(vertex((get<0>(v.v)-get<0>(projw.v)),(get<1>(v.v)-get<1>(projw.v)),(get<2>(v.v)-get<2>(projw.v))));
+		}
+
+		return model(v1, m.edges);
+	}
+
+};
+
 int main(){
 	float d1,d2,d3,d4;
 	int e1,e2;
@@ -105,4 +129,13 @@ int main(){
 	infile.close();
 
 	model m1(vertices,edges);
+
+	algorithms a1;
+
+	model m2 = a1.model_to_projections(m1, pl);
+
+	for (vertex i: m2.vertices){
+		cout<<(get<0>(i.v))<<" "<<(get<1>(i.v))<<" "<<(get<2>(i.v))<<endl;
+	}
+
 }
