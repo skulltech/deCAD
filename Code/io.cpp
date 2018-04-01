@@ -25,6 +25,10 @@ class point {
 	public:
 	tuple <float,float> p;
 
+	point(){
+
+	}
+
 	point(float a, float b) {
 		p = make_tuple(a, b);
 	}
@@ -56,7 +60,7 @@ class plane {
 
 class projection {
 public:
-	vector<point> vertices;
+	vector<point> points;
 	vector<tuple<int, int>> edges;
 };
 
@@ -92,21 +96,73 @@ class algorithms {
 		return model(v1, m.edges);
 	}
 
+	/**
+	* Algorithm implementation for converting given 2D projections
+	* into a 2D model.
+	*/
+	model projections_to_model(projection p1, projection p2, projection p3) {
+		vector<point> v1, v2, v3;
+
+		point first = p1.points.at(0);
+		int x1 = get<0>(first.p);
+		int y1 = get<1>(first.p);
+		for (point v: p1.points) {
+			v1.push_back(point(get<0>(v.p) - x1, get<1>(v.p) - y1));
+		}
+
+		point second = p2.points.at(0);
+		x1 = get<0>(second.p);
+		y1 = get<1>(second.p);
+		for (point v: p2.points) {
+			v2.push_back(point(get<0>(v.p) - x1, get<1>(v.p) - y1));
+		}
+
+		point third = p3.points.at(0);
+		x1 = get<0>(third.p);
+		y1 = get<1>(third.p);
+		for (point v: p3.points) {
+			v3.push_back(point(get<0>(v.p) - x1, get<1>(v.p) - y1));
+		}
+
+		vector<vertex> vertices;
+
+		for (int i=0; i<p1.points.size(); i++) {
+			vertices.push_back(vertex(get<0>(v1.at(i).p), get<0>(v2.at(i).p), get<0>(v3.at(i).p)));
+		}
+
+		vector<tuple<int, int>> edges;
+		for (int e; e < p1.edges.size();e++) {
+			if(checkEdge(p2.edges ,p1.edges.at(e))) {
+			    if(checkEdge(p3.edges, p1.edges.at(e))) {
+			    	edges.push_back(p1.edges.at(e));
+			    }
+			}
+		}
+		return model(vertices, edges);
+	}
+
+	bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e){
+		for (int j=0;j<edges.size();j++){
+			if( get<0>(edges.at(j)) == get<0>(e) && get<1>(edges.at(j)) == get<1>(e)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 };
 
 int main(){
 	float d1,d2,d3,d4;
 	int e1,e2;
 	int num;
-
+	//--------------algorithm one check----------------------
 	ifstream infile;
 	infile.open("input.txt");
 
 	// take vertex inputs
 	infile >> num;
-	
 	vector<vertex> vertices;
-
  	for(int i=0;i<(num);i++){
 		infile>>d1>>d2>>d3>>d4;
 		vertices.push_back(vertex(d2,d3,d4));
@@ -114,9 +170,7 @@ int main(){
 
 	// take edges input
 	infile >> num;
-	
 	vector<tuple<int,int>> edges;
-
  	for(int i=0;i<(num);i++){
 		infile>>e1>>e2;
 		edges.push_back(make_tuple(e1,e2));
@@ -127,15 +181,21 @@ int main(){
 	plane pl(d1,d2,d3,d4);
 
 	infile.close();
-
 	model m1(vertices,edges);
-
 	algorithms a1;
-
 	model m2 = a1.model_to_projections(m1, pl);
-
 	for (vertex i: m2.vertices){
 		cout<<(get<0>(i.v))<<" "<<(get<1>(i.v))<<" "<<(get<2>(i.v))<<endl;
 	}
+
+	//--------------------------algorithm one check-------------------
+
+	//------------------------- algorithm two check---------------------
+
+	ifstream infile;
+	infile.open("input2.txt");
+	infile >> num;
+
+
 
 }
