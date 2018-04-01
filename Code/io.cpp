@@ -62,6 +62,15 @@ class projection {
 public:
 	vector<point> points;
 	vector<tuple<int, int>> edges;
+
+	projection(){
+
+	}
+
+	projection (vector<point> p, vector<tuple<int, int>> e){
+		points = p;
+		edges = e;
+	}
 };
 
 class model {
@@ -192,10 +201,65 @@ int main(){
 
 	//------------------------- algorithm two check---------------------
 
-	ifstream infile;
 	infile.open("input2.txt");
+
 	infile >> num;
 
+	vector<point> points1;
+ 	for(int i=0;i<(num);i++){
+		infile>>d1>>d2;
+		points1.push_back(point(d1, d2));
+	}
 
+	infile >> num;
+
+	vector<tuple<int,int>> edges1;
+ 	for(int i=0;i<(num);i++){
+		infile>>e1>>e2;
+		edges1.push_back(make_tuple(e1,e2));
+	}
+
+	projection p1(points1, edges1);
+
+	infile >> num;
+
+	vector<point> points2;
+ 	for(int i=0;i<(num);i++){
+		infile>>d1>>d2;
+		points2.push_back(point(d1, d2));
+	}
+
+	infile >> num;
+
+	vector<tuple<int,int>> edges2;
+ 	for(int i=0;i<(num);i++){
+		infile>>e1>>e2;
+		edges2.push_back(make_tuple(e1,e2));
+	}
+
+	projection p2(points2, edges2);
+
+
+	vector<point> points3;
+ 	for(int i=0;i<(num);i++){
+		infile>>d1>>d2;
+		points3.push_back(point(d1, d2));
+	}
+
+	infile >> num;
+
+	vector<tuple<int,int>> edges3;
+ 	for(int i=0;i<(num);i++){
+		infile>>e1>>e2;
+		edges3.push_back(make_tuple(e1,e2));
+	}
+
+	projection p3(points3, edges3);
+	infile.close();
+
+	model m3 = a1.projections_to_model(p1, p2, p3);
+	for (vertex i: m3.vertices){
+		cout<<(get<0>(i.v))<<" "<<(get<1>(i.v))<<" "<<(get<2>(i.v))<<endl;
+	}
 
 }
