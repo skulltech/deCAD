@@ -2,6 +2,7 @@
 #include <fstream>
 #include <tuple>
 #include <vector>
+#include <algorithms.h>
 
 using namespace std;
 
@@ -26,7 +27,6 @@ class point {
 	tuple <float,float> p;
 
 	point(){
-
 	}
 
 	point(float a, float b) {
@@ -58,13 +58,13 @@ class plane {
 	}
 };
 
+
 class projection {
 public:
 	vector<point> points;
 	vector<tuple<int, int>> edges;
 
 	projection(){
-
 	}
 
 	projection (vector<point> p, vector<tuple<int, int>> e){
@@ -72,6 +72,7 @@ public:
 		edges = e;
 	}
 };
+
 
 class model {
 public:
@@ -83,6 +84,7 @@ public:
 		edges = e;
 	}
 };
+
 
 class algorithms {
 	public:
