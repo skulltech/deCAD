@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns1="http://sozi.baierouge.fr" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg2" viewBox="0 0 360 360" version="1.0" inkscape:version="0.91 r13725">
+  <g id="layer1">
+    <path id="path2394" style="fill-rule:evenodd;fill:#000000" d="m139.72 0l-41.595 24 41.595 24 41.56-24-41.56-24zm41.56 24l41.56 24 41.57-24-41.57-24-41.56 24zm41.56 24l-41.56 24 41.56 24 41.57-24-41.57-24zm41.57 24l41.59 24v48l41.56-24v-48l-41.56-24-41.59 24zm41.59 72l-41.59 24v48l41.59-24v-48zm0 48v48l41.56-24v-48l-41.56 24zm0 48l-41.59 24v48l41.59-24v-48zm-41.59 24v-48l-41.57 24v48l41.57-24zm-41.57 24l-41.56 24-41.56-24v48l41.56 24 41.56-24v-48zm-83.12 0v-48l-41.595-24v48l41.595 24zm-41.595-24l-41.563-24v48l41.563 24v-48zm-41.563-24v-48l-41.562-24v48s41.563 24 41.562 24zm0-48l41.563 24v-48l-41.563-24v48zm0-48v-48l41.563-24-41.563-24-41.562 24v48s41.563 24 41.562 24zm41.563-72l41.595 24 41.56-24-41.56-24-41.595 24zm41.595 24l-41.595 24v48l41.595 24v-48l41.56-24-41.56-24zm41.56 24l41.56 24v48l41.57-24v-48l-41.57-24-41.56 24zm41.56 72l-41.56 24-41.56-24v48l41.56 24 41.56-24v-48z"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>3d chessboard</dc:title>
+        <dc:date>2011-01-10T22:23:56</dc:date>
+        <dc:description>It's kinda like a cube.</dc:description>
+        <dc:source>https://openclipart.org/detail/104329/3d-chessboard-by-10binary</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>10binary</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>3d</rdf:li>
+            <rdf:li>chessboard</rdf:li>
+            <rdf:li>cube</rdf:li>
+            <rdf:li>squares</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

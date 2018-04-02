@@ -1,6 +1,6 @@
 CC            = g++
 LFLAGS        = -m64
-CFLAGS        = -m64 -pipe -O2 -W -D_REENTRANT $(DEFINES) -fPIC
+CFLAGS        = -m64 -O2 -Wall -D_REENTRANT $(DEFINES) -fPIC
 LIBS          = -L/usr/lib/x86_64-linux-gnu -lm -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread
 DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB
 OBJECTS       = main.o
