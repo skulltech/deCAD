@@ -65,7 +65,7 @@ class Projection {
 	Projection() {
 	}
 
-	Projection (vector<Point> p, vector<tuple<int, int>> e){
+	Projection (vector<Point> p, vector<tuple<int, int>> e) {
 		points = p;
 		edges = e;
 	}

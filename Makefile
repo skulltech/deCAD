@@ -1,23 +1,36 @@
-CC            = g++
+CC            = /usr/bin/g++
 LFLAGS        = -m64
-CFLAGS        = -m64 -O2 -Wall -D_REENTRANT $(DEFINES) -fPIC
+CFLAGS        = -m64 -O2 -W $(DEFINES) -fPIC
 LIBS          = -L/usr/lib/x86_64-linux-gnu -lm -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread
-DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB
-OBJECTS       = main.o
+DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -D_REENTRANT
+HEADERS       = $(shell find $(SRCPATH) -type f -name '*.h')
+SOURCES       = $(shell find $(SRCPATH) -type f -name '*.cpp')
+OBJECTS       = $(patsubst $(SRCPATH)/%.cpp, $(BINPATH)/%.o, $(SOURCES))
 TARGET        = deCAD
+BASEINCPATH   = /usr/include/x86_64-linux-gnu
+INCPATH       = -I. -I$(BASEINCPATH) -I/usr/lib/qt/mkspecs/linux-g++ -I$(BASEINCPATH)/qt5 -I$(BASEINCPATH)/qt5/QtCore -I$(BASEINCPATH)/qt5/QtWidgets
+SRCPATH       = ./src
+BINPATH       = ./bin
 
-INCPATH         = -I. -I/usr/include/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/lib/qt/mkspecs/linux-g++
+
+$(BINPATH)/%.o: $(SRCPATH)/%.cpp
+	@mkdir -p "$(@D)"
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCPATH)
+
+$(TARGET): $(OBJECTS)  
+	$(CC) $(LFLAGS) -o $(BINPATH)/$@ $^ $(LIBS)
 
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $<  $(INCPATH)
+# .PHONY: bin clean
 
-$(TARGET):  $(OBJECTS)  
-	$(CC) $(LFLAGS) -o $@ $^ $(LIBS)
+all: bin $(TARGET)
 
-.PHONY: clean
+bin:
+	mkdir $(BINPATH)
+
 clean: 
-	rm -f *.o $(TARGET)
+	rm -rf $(BINPATH)
+
 
 
 # CC          = /usr/bin/g++

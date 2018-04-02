@@ -1,52 +1,49 @@
-class vertex {
+class Vertex {
 	public:
 	tuple <float,float,float> v;
-	
-	vertex(float a, float b, float c);
-	void print_vertex();
+	Vertex(float a, float b, float c);
+	void print();
 };
 
-
-class point {
+class Point {
 	public:
 	tuple <float,float> p;
-
 	point();
 	point(float a, float b);
-	void print_vertex();
+	void print();
 };
 
-
-class plane {
+class Plane {
 	public:
-	float a,b,c,d; // The equation of plane is ax+by+cz+d=0;
-	tuple <float,float,float> normal;
-
-	plane(float a1,float b1, float c1, float d1);
-	void print_normal();
-	float square_normal();
+	float a, b, c, d;
+	Plane(float a1, float b1, float c1, float d1);
+	void print();
+	float squareNormal();
 };
 
-class projection {
-public:
-	vector<point> points;
-	vector<tuple<int, int>> edges;
-
-	projection();
-	projection (vector<point> p, vector<tuple<int, int>> e);
-};
-
-class model {
-public:
-	vector<vertex> vertices;
-	vector<tuple<int, int>> edges;
-
-	model(vector<vertex> v, vector<tuple<int, int>> e);
-};
-
-class algorithms {
+class Projection {
 	public:
-	model model_to_projections(model m, plane p);
-	model projections_to_model(projection p1, projection p2, projection p3);
-	bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e);
+	vector<Point> points;
+	vector<tuple<int, int>> edges;
+	Projection();
+	Projection (vector<Point> p, vector<tuple<int, int>> e);
 };
+
+class Model {
+	public:
+	vector<Vertex> vertices;
+	vector<tuple<int, int>> edges;
+	Model(vector<Vertex> v, vector<tuple<int, int>> e);
+};
+
+Point isometricProjPoint(Vertex v);
+
+Projection isometricProjection(Model m);
+
+Projection flatModelToProjection(Model m);
+
+Model modelToProjection(Model m, Plane p);
+
+Model projectionsToModel(Projection p1, Projection p2, Projection p3);
+
+bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e);
