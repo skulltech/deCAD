@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fstream>
+#include <math>
 #include <tuple>
 #include <vector>
 #include <algorithms.h>
@@ -8,21 +8,21 @@ using namespace std;
 
 
 
-class vertex {
+class Vertex {
 	public:
 	tuple <float,float,float> v;
 
-	vertex(float a, float b, float c) {
+	Vertex(float a, float b, float c) {
 		v = make_tuple(a,b,c);
 	}
 	
-	void print_vertex() {
-		cout << (get<0>(v)) << ", " << (get<1>(v)) << ", " <<(get<2>(v)) << endl;
+	void print() {
+		cout << "Vertex ["(get<0>(v))<< ", "<< (get<1>(v))<< ", "<<(get<2>(v))<< "]"<< endl;
 	}
 };
 
 
-class point {
+class Point {
 	public:
 	tuple <float,float> p;
 
@@ -33,132 +33,162 @@ class point {
 		p = make_tuple(a, b);
 	}
 	
-	void print_vertex() {
-		cout << (get<0>(p)) << ", " << (get<1>(p)) << endl;
+	void print() {
+		cout "Point ["<< (get<0>(p))<< ", "<< (get<1>(p))<< "]"<< endl;
 	}
 };
 
 
-class plane {
+class Plane {
 	public:
-	float a,b,c,d; // The equation of plane is ax+by+cz+d=0;
-	tuple <float,float,float> normal;
+	float a, b, c, d; // The equation of plane is ax+by+cz+d = 0;
 
-	plane(float a1,float b1, float c1, float d1){
+	Plane(float a1, float b1, float c1, float d1) {
 		a = a1; b = b1; c = c1; d = d1;
-		normal = make_tuple(a1,b1,c1);
 	}
 
-	void print_normal() {
-		cout<< (get<0>(normal)) << "i^ + " << get<1>(normal)<< "j^ +" << get<2>(normal) << "k^ " << endl;
+	void print() {
+		cout<< "Plane ["<< a<< "x + "<< b<< "y + "<< c<< "z + "<< d<< " = 0]"<< endl;
 	}
 
-	float square_normal(){
+	float squareNormal() {
 		return (a*a + b*b + c*c); 
 	}
 };
 
 
-class projection {
-public:
-	vector<point> points;
+class Projection {
+	public:
+	vector<Point> points;
 	vector<tuple<int, int>> edges;
 
-	projection(){
+	Projection() {
 	}
 
-	projection (vector<point> p, vector<tuple<int, int>> e){
+	Projection (vector<Point> p, vector<tuple<int, int>> e){
 		points = p;
 		edges = e;
 	}
 };
 
 
-class model {
-public:
-	vector<vertex> vertices;
+class Model {
+	public:
+	vector<Vertex> vertices;
 	vector<tuple<int, int>> edges;
 
-	model(vector<vertex> v, vector<tuple<int, int>> e) {
+	Model(vector<Vertex> v, vector<tuple<int, int>> e) {
 		vertices = v;
 		edges = e;
 	}
 };
 
 
-class algorithms {
-	public:
-	/**
-	* Algorithm implementation for converting given 3D model 
-	* into a 2D projection on the given plane.
-	*/
-	model model_to_projections(model m, plane p) {
-		vector<vertex> v1;
+Point isometricProjPoint(Vertex v) {
+   float aMatrix[3][3] = {{sqrt(3), 0, -sqrt(3)}, {1, 2, 1}, {sqrt(2), -sqrt(2), sqrt(2)}};
+   float bMatrix[3][1] = {{get<0>v.v}, {get<1>v.v}, {get<2>v.v}};
+   float product[3][1] = {{0}, {0}, {0}};  
 
-		for(vertex v: m.vertices) {
-			float temp1=(get<0>(p.normal)*(get<0>(v.v))+(get<1>(p.normal)*(get<1>(v.v)))+(get<2>(p.normal))*(get<2>(v.v)));
-			float temp2=(p.square_normal());
+   for (int row = 0; row < 3; row++) {  
+       for (int col = 0; col < 1; col++) {  
+           // Multiply the row of A by the column of B to get the row, column of product.  
+           for (int inner = 0; inner < 3; inner++) {  
+               product[row][col] += aMatrix[row][inner] * bMatrix[inner][col];  
+           }  
+       }
+   }
 
-			vertex projw((temp1/temp2)*(get<0>(p.normal)),(temp1/temp2)*(get<1>(p.normal)),(temp1/temp2)*(get<2>(p.normal)));
+   return Point(product[0][0], product[1][0]);
+}
 
-			v1.push_back(vertex((get<0>(v.v)-get<0>(projw.v)),(get<1>(v.v)-get<1>(projw.v)),(get<2>(v.v)-get<2>(projw.v))));
-		}
 
-		return model(v1, m.edges);
+Projection isometricProjection(Model m) {
+	Projection proj();
+
+	for (vertex v: m.vertices) {
+		proj.points.push_back(isometricProjPoint(v));
+	}
+	proj.edges = m.edges;
+
+	return proj;
+}
+
+
+Projection flatModelToProjection(Model m) {
+	// To write!!
+}
+
+
+/*!
+Algorithm implementation for converting given 3D model 
+into a 2D projection on the given plane.
+*/
+Model modelToProjection(Model m, Plane p) {
+	vector<Vertex> vertices;
+
+	for(vertex v: m.vertices) {
+		float temp1 = (p.a*(get<0>(v.v))) + (p.b*(get<1>(v.v))) + (p.c*(get<2>(v.v)));
+		float temp2 = p.squareNormal();
+		Vertex projw((temp1/temp2)*p.a, (temp1/temp2)*p.b, (temp1/temp2)*p.c);
+		Vertex v1((get<0>(v.v)-get<0>(projw.v)), (get<1>(v.v)-get<1>(projw.v)), (get<2>(v.v)-get<2>(projw.v)));
+		
+		vertices.push_back(v1);
 	}
 
-	/**
-	* Algorithm implementation for converting given 2D projections
-	* into a 2D model.
-	*/
-	model projections_to_model(projection p1, projection p2, projection p3) {
-		vector<point> v1, v2, v3;
+	return flatModelToProjection(Model(vertices, m.edges));
+}
 
-		point first = p1.points.at(0);
-		int x1 = get<0>(first.p);
-		int y1 = get<1>(first.p);
-		for (point v: p1.points) {
-			v1.push_back(point(get<0>(v.p) - x1, get<1>(v.p) - y1));
-		}
+/*
+Algorithm implementation for converting given 2D projections
+into a 2D model.
+*/
+Model projectionsToModel(Projection p1, Projection p2, Projection p3) {
+	vector<Point> v1, v2, v3;
 
-		point second = p2.points.at(0);
-		x1 = get<0>(second.p);
-		y1 = get<1>(second.p);
-		for (point v: p2.points) {
-			v2.push_back(point(get<0>(v.p) - x1, get<1>(v.p) - y1));
-		}
-
-		point third = p3.points.at(0);
-		x1 = get<0>(third.p);
-		y1 = get<1>(third.p);
-		for (point v: p3.points) {
-			v3.push_back(point(get<0>(v.p) - x1, get<1>(v.p) - y1));
-		}
-
-		vector<vertex> vertices;
-
-		for (int i=0; i<p1.points.size(); i++) {
-			vertices.push_back(vertex(get<0>(v1.at(i).p), get<0>(v2.at(i).p), get<0>(v3.at(i).p)));
-		}
-
-		vector<tuple<int, int>> edges;
-		for (int e; e < p1.edges.size();e++) {
-			if(checkEdge(p2.edges ,p1.edges.at(e))) {
-			    if(checkEdge(p3.edges, p1.edges.at(e))) {
-			    	edges.push_back(p1.edges.at(e));
-			    }
-			}
-		}
-		return model(vertices, edges);
+	Point first = p1.points.at(0);
+	int x1 = get<0>(first.p);
+	int y1 = get<1>(first.p);
+	for (Point v: p1.points) {
+		v1.push_back(Point(get<0>(v.p) - x1, get<1>(v.p) - y1));
 	}
 
-	bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e){
-		for (int j=0;j<edges.size();j++){
-			if( get<0>(edges.at(j)) == get<0>(e) && get<1>(edges.at(j)) == get<1>(e)){
-				return true;
-			}
-		}
-		return false;
+	Point second = p2.points.at(0);
+	x1 = get<0>(second.p);
+	y1 = get<1>(second.p);
+	for (Point v: p2.points) {
+		v2.push_back(Point(get<0>(v.p) - x1, get<1>(v.p) - y1));
 	}
 
-};
+	Point third = p3.points.at(0);
+	x1 = get<0>(third.p);
+	y1 = get<1>(third.p);
+	for (Point v: p3.points) {
+		v3.push_back(Point(get<0>(v.p) - x1, get<1>(v.p) - y1));
+	}
+
+	vector<Vertex> vertices;
+
+	for (int i=0; i<p1.points.size(); i++) {
+		vertices.push_back(Vertex(get<0>(v1.at(i).p), get<0>(v2.at(i).p), get<0>(v3.at(i).p)));
+	}
+
+	vector<tuple<int, int>> edges;
+	for (int e; e < p1.edges.size();e++) {
+		if (checkEdge(p2.edges ,p1.edges.at(e))) {
+		    if (checkEdge(p3.edges, p1.edges.at(e))) {
+		    	edges.push_back(p1.edges.at(e));
+		    }
+		}
+	}
+	return Model(vertices, edges);
+}
+
+
+bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e) {
+	for (int j=0; j<edges.size(); j++) {
+		if (get<0>(edges.at(j))==get<0>(e) && get<1>(edges.at(j))==get<1>(e)) {
+			return true;
+		}
+	}
+	return false;
+}
