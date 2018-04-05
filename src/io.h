@@ -5,6 +5,6 @@ using namespace std;
 
 tuple<Model, Plane> read3DInputFile(string filename);
 vector<Projection> read2DInputFile(string filename);
-void drawProjection(Projection proj);
+int drawProjection(Projection proj, int argc, char *argv[]);
 
 #endif

@@ -13,23 +13,22 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  cout << "asdasd";
-  QApplication a(argc, argv);
+  cout << "asdasd" << endl;
+  
 
   // tuple<Model, Plane> input3D = read3DInputFile("3Dinput.txt");
   // Projection proj = modelToProjection(get<0>(input3D), get<1>(input3D));
   // drawProjection(proj);
-  cout << "Starting";
+  cout << "Starting" << endl;
   vector<Projection> projs = read2DInputFile("2Dinput.txt");
-  cout << "Calling";
+  cout << "Calling" << endl;
 
   Model modl = projectionsToModel(projs.at(0), projs.at(1), projs.at(2));
-  cout << "Calling";
+  cout << "Calling" << endl;
   Projection proj = isometricProjection(modl);
-  cout << "done";
-  drawProjection(proj);
-  cout << "fcu";
+  cout << "done" << endl;
+  int ret = drawProjection(proj, argc, argv);
+  cout << "fcu" << endl;
 
-  return a.exec();
-  cout << "dam";
+  return ret;
 }

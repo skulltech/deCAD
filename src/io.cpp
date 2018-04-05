@@ -82,21 +82,34 @@ vector<Projection> read2DInputFile(string filename) {
 }
 
 
-void drawProjection(Projection proj) {
+int drawProjection(Projection proj, int argc, char *argv[]) {
+   QApplication a(argc, argv);
+
+   cout << "drawing" << endl;
    QLabel l;
    QPicture pi;
    QPainter p(&pi);
+   cout << proj.edges.size() << endl;
+   cout << proj.points.size() << endl;
 
    p.setRenderHint(QPainter::Antialiasing);
    p.setPen(QPen(Qt::black, 5, Qt::DashDotLine, Qt::RoundCap));
 
    for (tuple<int, int> edge: proj.edges) {
+      cout << "edges" << endl;
       Point u = proj.points.at(get<0>(edge));
       Point v = proj.points.at(get<1>(edge));
+      cout << FACTOR*(get<0>(u.p)) << endl;
+      cout << FACTOR*(get<1>(u.p)) << endl;
+      cout << FACTOR*(get<1>(u.p)) << endl;
+      cout << FACTOR*(get<1>(u.p)) << endl;
+
       p.drawLine(FACTOR*(get<0>(u.p)), FACTOR*(get<1>(u.p)), FACTOR*(get<0>(v.p)), FACTOR*(get<1>(v.p)));
    }
    p.end();
 
    l.setPicture(pi);
    l.show();
+
+   return a.exec();
 }
