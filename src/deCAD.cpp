@@ -13,11 +13,12 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  cout << "asdasd" << endl;
-  
-
   tuple<Model, Plane> input3D = read3DInputFile("3Dinput.txt");
   Projection proj = modelToProjection(get<0>(input3D), get<1>(input3D));
+  cout << proj.points.size() << endl;
+  proj.points.at(0).print();
+  proj.points.at(1).print();
+  cout << proj.edges.size() << endl;
   int ret = drawProjection(proj, argc, argv);
 
 

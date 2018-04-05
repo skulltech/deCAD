@@ -54,8 +54,6 @@ Model::Model(vector<Vertex> v, vector<tuple<int, int>> e) {
 
 
 Point isometricProjPoint(Vertex v) {
-	cout << "star";
-
 	float aMatrix[3][3] = {{sqrt(3), 0, -sqrt(3)}, {1, 2, 1}, {sqrt(2), -sqrt(2), sqrt(2)}};
 	float bMatrix[3][1] = {{get<0>(v.v)}, {get<1>(v.v)}, {get<2>(v.v)}};
 	float product[3][1] = {{0}, {0}, {0}};  
@@ -69,23 +67,17 @@ Point isometricProjPoint(Vertex v) {
 	   }
 	}
 
-	cout << "Dasd";
-
 	return Point(product[0][0], product[1][0]);
 }
 
 
 Projection isometricProjection(Model m) {
-	cout << 1;
 	Projection proj;
-	cout << 2;
 
 	for (Vertex v: m.vertices) {
-		cout << 3;
 		proj.points.push_back(isometricProjPoint(v));
 	}
 	proj.edges = m.edges;
-	cout << 4;
 
 	return proj;
 }
@@ -95,8 +87,15 @@ Projection flatModelToProjection(Model m, Plane p) {
 	tuple<float, float, float> normal = make_tuple(p.a, p.b, p.c);
 	tuple<float, float, float> n0 = make_tuple(p.a, p.b, p.c+1);
 
+	cout << get<0>(normal) << get<1>(normal) << get<2>(normal) << endl;
+	cout << get<0>(n0) << get<1>(n0) << get<2>(n0) << endl;
+
+
 	tuple<float, float, float> e1 = crossProduct(normal, n0);
 	tuple<float, float, float> e2 = crossProduct(normal, e1);
+
+	cout << get<0>(e1) << get<1>(e1) << get<2>(e1) << endl;
+	cout << get<0>(e2) << get<1>(e2) << get<2>(e2) << endl;
 
 	Projection proj;
 
@@ -123,6 +122,7 @@ Projection modelToProjection(Model m, Plane p) {
 		Vertex v1((get<0>(v.v)-get<0>(projw.v)), (get<1>(v.v)-get<1>(projw.v)), (get<2>(v.v)-get<2>(projw.v)));
 		
 		vertices.push_back(v1);
+		v1.print();
 	}
 
 	return flatModelToProjection(Model(vertices, m.edges), p);
