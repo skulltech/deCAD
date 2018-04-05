@@ -1,3 +1,11 @@
+#ifndef ALGORITHMS_H
+#define ALGORITHMS_H
+
+
+
+using namespace std;
+
+
 class Vertex {
 	public:
 	tuple <float,float,float> v;
@@ -8,8 +16,8 @@ class Vertex {
 class Point {
 	public:
 	tuple <float,float> p;
-	point();
-	point(float a, float b);
+	Point();
+	Point(float a, float b);
 	void print();
 };
 
@@ -42,8 +50,10 @@ Projection isometricProjection(Model m);
 
 Projection flatModelToProjection(Model m);
 
-Model modelToProjection(Model m, Plane p);
+Projection modelToProjection(Model m, Plane p);
 
 Model projectionsToModel(Projection p1, Projection p2, Projection p3);
 
 bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e);
+
+#endif

@@ -1,6 +1,6 @@
 CC            = /usr/bin/g++
 LFLAGS        = -m64
-CFLAGS        = -m64 -O2 -W $(DEFINES) -fPIC
+CFLAGS        = -m64 -O2 -Wsign-compare -W $(DEFINES) -fPIC -std=c++11
 LIBS          = -L/usr/lib/x86_64-linux-gnu -lm -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread
 DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -D_REENTRANT
 HEADERS       = $(shell find $(SRCPATH) -type f -name '*.h')

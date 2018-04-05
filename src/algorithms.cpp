@@ -1,114 +1,91 @@
 #include <iostream>
-#include <math>
+#include <math.h>
 #include <tuple>
 #include <vector>
-#include <algorithms.h>
+#include <string>
+#include "algorithms.h"
 
 using namespace std;
 
 
 
-class Vertex {
-	public:
-	tuple <float,float,float> v;
-
-	Vertex(float a, float b, float c) {
+Vertex::Vertex(float a, float b, float c) {
 		v = make_tuple(a,b,c);
-	}
+}
 	
-	void print() {
-		cout << "Vertex ["(get<0>(v))<< ", "<< (get<1>(v))<< ", "<<(get<2>(v))<< "]"<< endl;
-	}
-};
+void Vertex::print() { cout << "Vertex ["<< (get<0>(v))<< ", "<< (get<1>(v))<< ", "<<(get<2>(v))<< "]"<< endl; }
 
 
-class Point {
-	public:
-	tuple <float,float> p;
-
-	point(){
-	}
-
-	point(float a, float b) {
-		p = make_tuple(a, b);
-	}
+Point::Point(){}
+Point::Point(float a, float b) { p = make_tuple(a, b); }
 	
-	void print() {
-		cout "Point ["<< (get<0>(p))<< ", "<< (get<1>(p))<< "]"<< endl;
-	}
-};
+void Point::print() {
+	cout << "Point ["<< (get<0>(p))<< ", "<< (get<1>(p))<< "]"<< endl;
+}
 
 
-class Plane {
-	public:
-	float a, b, c, d; // The equation of plane is ax+by+cz+d = 0;
 
-	Plane(float a1, float b1, float c1, float d1) {
-		a = a1; b = b1; c = c1; d = d1;
-	}
+Plane::Plane(float a1, float b1, float c1, float d1) {
+	a = a1; b = b1; c = c1; d = d1;
+}
 
-	void print() {
-		cout<< "Plane ["<< a<< "x + "<< b<< "y + "<< c<< "z + "<< d<< " = 0]"<< endl;
-	}
+void Plane::print() {
+	cout<< "Plane ["<< a<< "x + "<< b<< "y + "<< c<< "z + "<< d<< " = 0]"<< endl;
+}
 
-	float squareNormal() {
-		return (a*a + b*b + c*c); 
-	}
-};
+float Plane::squareNormal() {
+	return (a*a + b*b + c*c); 
+}
 
 
-class Projection {
-	public:
-	vector<Point> points;
-	vector<tuple<int, int>> edges;
+Projection::Projection() { }
 
-	Projection() {
-	}
-
-	Projection (vector<Point> p, vector<tuple<int, int>> e) {
-		points = p;
-		edges = e;
-	}
-};
+Projection::Projection (vector<Point> p, vector<tuple<int, int>> e) {
+	points = p;
+	edges = e;
+}
 
 
-class Model {
-	public:
-	vector<Vertex> vertices;
-	vector<tuple<int, int>> edges;
+Model::Model(vector<Vertex> v, vector<tuple<int, int>> e) {
+	vertices = v;
+	edges = e;
+}
 
-	Model(vector<Vertex> v, vector<tuple<int, int>> e) {
-		vertices = v;
-		edges = e;
-	}
-};
 
 
 Point isometricProjPoint(Vertex v) {
-   float aMatrix[3][3] = {{sqrt(3), 0, -sqrt(3)}, {1, 2, 1}, {sqrt(2), -sqrt(2), sqrt(2)}};
-   float bMatrix[3][1] = {{get<0>v.v}, {get<1>v.v}, {get<2>v.v}};
-   float product[3][1] = {{0}, {0}, {0}};  
+	cout << "star";
 
-   for (int row = 0; row < 3; row++) {  
-       for (int col = 0; col < 1; col++) {  
-           // Multiply the row of A by the column of B to get the row, column of product.  
-           for (int inner = 0; inner < 3; inner++) {  
-               product[row][col] += aMatrix[row][inner] * bMatrix[inner][col];  
-           }  
-       }
-   }
+	float aMatrix[3][3] = {{sqrt(3), 0, -sqrt(3)}, {1, 2, 1}, {sqrt(2), -sqrt(2), sqrt(2)}};
+	float bMatrix[3][1] = {{get<0>(v.v)}, {get<1>(v.v)}, {get<2>(v.v)}};
+	float product[3][1] = {{0}, {0}, {0}};  
 
-   return Point(product[0][0], product[1][0]);
+	for (int row = 0; row < 3; row++) {  
+	   for (int col = 0; col < 1; col++) {  
+	       // Multiply the row of A by the column of B to get the row, column of product.  
+	       for (int inner = 0; inner < 3; inner++) {  
+	           product[row][col] += aMatrix[row][inner] * bMatrix[inner][col];  
+	       }  
+	   }
+	}
+
+	cout << "Dasd";
+
+	return Point(product[0][0], product[1][0]);
 }
 
 
 Projection isometricProjection(Model m) {
-	Projection proj();
+	cout << 1;
+	Projection proj;
+	cout << 2;
 
-	for (vertex v: m.vertices) {
+	for (Vertex v: m.vertices) {
+		cout << 3;
 		proj.points.push_back(isometricProjPoint(v));
 	}
 	proj.edges = m.edges;
+	cout << 4;
 
 	return proj;
 }
@@ -123,10 +100,10 @@ Projection flatModelToProjection(Model m) {
 Algorithm implementation for converting given 3D model 
 into a 2D projection on the given plane.
 */
-Model modelToProjection(Model m, Plane p) {
+Projection modelToProjection(Model m, Plane p) {
 	vector<Vertex> vertices;
 
-	for(vertex v: m.vertices) {
+	for(Vertex v: m.vertices) {
 		float temp1 = (p.a*(get<0>(v.v))) + (p.b*(get<1>(v.v))) + (p.c*(get<2>(v.v)));
 		float temp2 = p.squareNormal();
 		Vertex projw((temp1/temp2)*p.a, (temp1/temp2)*p.b, (temp1/temp2)*p.c);
@@ -173,14 +150,15 @@ Model projectionsToModel(Projection p1, Projection p2, Projection p3) {
 	}
 
 	vector<tuple<int, int>> edges;
-	for (int e; e < p1.edges.size();e++) {
+	for (int e=0; e < p1.edges.size();e++) {
 		if (checkEdge(p2.edges ,p1.edges.at(e))) {
 		    if (checkEdge(p3.edges, p1.edges.at(e))) {
 		    	edges.push_back(p1.edges.at(e));
 		    }
 		}
 	}
-	return Model(vertices, edges);
+
+	return Model(vertices, edges);;
 }
 
 

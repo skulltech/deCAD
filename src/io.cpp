@@ -1,15 +1,20 @@
 #include <math.h>
 #include <fstream>
 #include <QtCore>
+#include <string>
+#include <iostream>
 #include <QtWidgets>
-#include <algorithms.h>
+#include "algorithms.h"
+#include "io.h"
 
 
-#define FACTOR 100
+#define FACTOR 100.0
+using namespace std;
 using namespace Qt;
 
 
-tuple<model, plane> read3DInputFile(string filename) {
+
+tuple<Model, Plane> read3DInputFile(string filename) {
    float d1,d2,d3,d4;
    int e1,e2;
    int num;
@@ -19,10 +24,10 @@ tuple<model, plane> read3DInputFile(string filename) {
 
    // take vertex inputs
    infile >> num;
-   vector<vertex> vertices;
+   vector<Vertex> vertices;
    for(int i=0; i<(num); i++) {
       infile >> d1 >> d2 >> d3 >> d4;
-      vertices.push_back(vertex(d2, d3, d4));
+      vertices.push_back(Vertex(d2, d3, d4));
    }
 
    // take edges input
@@ -37,28 +42,28 @@ tuple<model, plane> read3DInputFile(string filename) {
    infile >> d1 >> d2 >> d3 >> d4;
    infile.close();
 
-   plane p(d1, d2, d3, d4);
-   model m(vertices, edges);
+   Plane p(d1, d2, d3, d4);
+   Model m(vertices, edges);
 
    return make_tuple(m, p);
 }
 
 
-vector<projection> read2DInputFile(string filename) {
+vector<Projection> read2DInputFile(string filename) {
    float d1, d2, d3, d4;
    int e1, e2;
    int num;
 
-   vector<projection> projs;
-
+   vector<Projection> projs;
+   ifstream infile;
    infile.open(filename);
 
    for (int i=0; i<3; i++) {
       infile >> num;
-      vector<point> points;
+      vector<Point> points;
       for(int i=0; i<(num); i++) {
          infile >> d1 >> d2;
-         points.push_back(point(d1, d2));
+         points.push_back(Point(d1, d2));
       }
 
       infile >> num;
@@ -68,15 +73,16 @@ vector<projection> read2DInputFile(string filename) {
          edges.push_back(make_tuple(e1,e2));
       }
 
-      projection proj(points, edges);
+      Projection proj(points, edges);
       projs.push_back(proj);
    }
 
    infile.close();
+   return projs;
 }
 
 
-void drawProjection(projection proj) {
+void drawProjection(Projection proj) {
    QLabel l;
    QPicture pi;
    QPainter p(&pi);
@@ -85,9 +91,9 @@ void drawProjection(projection proj) {
    p.setPen(QPen(Qt::black, 5, Qt::DashDotLine, Qt::RoundCap));
 
    for (tuple<int, int> edge: proj.edges) {
-      point u = p.points.at(get<0>edge);
-      point v = p.points.at(get<1>edge);
-      p.drawLine(FACTOR*get<0>u.p, FACTOR*get<1>u.p, FACTOR*get<0>v.p, FACTOR*get<1>v.p);
+      Point u = proj.points.at(get<0>(edge));
+      Point v = proj.points.at(get<1>(edge));
+      p.drawLine(FACTOR*(get<0>(u.p)), FACTOR*(get<1>(u.p)), FACTOR*(get<0>(v.p)), FACTOR*(get<1>(v.p)));
    }
    p.end();
 
