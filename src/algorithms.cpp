@@ -91,8 +91,21 @@ Projection isometricProjection(Model m) {
 }
 
 
-Projection flatModelToProjection(Model m) {
-	// To write!!
+Projection flatModelToProjection(Model m, Plane p) {
+	tuple<float, float, float> normal = make_tuple(p.a, p.b, p.c);
+	tuple<float, float, float> n0 = make_tuple(p.a, p.b, p.c+1);
+
+	tuple<float, float, float> e1 = crossProduct(normal, n0);
+	tuple<float, float, float> e2 = crossProduct(normal, e1);
+
+	Projection proj;
+
+	for (Vertex v: m.vertices) {
+		proj.points.push_back(Point(dotProduct(e1, v.v), dotProduct(e2, v.v)));
+	}
+	proj.edges = m.edges;
+
+	return proj;
 }
 
 
@@ -112,7 +125,7 @@ Projection modelToProjection(Model m, Plane p) {
 		vertices.push_back(v1);
 	}
 
-	return flatModelToProjection(Model(vertices, m.edges));
+	return flatModelToProjection(Model(vertices, m.edges), p);
 }
 
 /*
@@ -169,4 +182,15 @@ bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e) {
 		}
 	}
 	return false;
+}
+
+tuple<float, float, float> crossProduct(tuple<float, float, float> a, tuple<float, float, float> b) {
+	return make_tuple(  ((get<1>(a)*get<2>(b)) - (get<1>(b)*get<2>(a))), 
+						((get<2>(a)*get<0>(b)) - (get<0>(a)*get<2>(b))), 
+						((get<0>(a)*get<1>(b)) - (get<1>(a)*get<0>(b)))
+					 );
+}
+
+float dotProduct(tuple<float, float, float> a, tuple<float, float, float> b) {
+	return (get<0>(a)*get<0>(b)) + (get<1>(a)*get<1>(b)) + (get<2>(a)*get<2>(b));
 }

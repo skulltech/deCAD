@@ -56,4 +56,8 @@ Model projectionsToModel(Projection p1, Projection p2, Projection p3);
 
 bool checkEdge(vector<tuple<int,int>> edges, tuple<int,int> e);
 
+tuple<float, float, float> crossProduct(tuple<float, float, float> a, tuple<float, float, float> b);
+
+float dotProduct(tuple<float, float, float> a, tuple<float, float, float> b);
+
 #endif
