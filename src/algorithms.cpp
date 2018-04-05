@@ -84,8 +84,13 @@ Projection isometricProjection(Model m) {
 
 
 Projection flatModelToProjection(Model m, Plane p) {
+	int rand1 = rand() % (10 - 2 + 1) + 2;
+	int rand2 = rand() % (10 - 2 + 1) + 2;
+	int rand3 = rand() % (10 - 2 + 1) + 2;
+
+
 	tuple<float, float, float> normal = make_tuple(p.a, p.b, p.c);
-	tuple<float, float, float> n0 = make_tuple(p.a, p.b, p.c+1);
+	tuple<float, float, float> n0 = make_tuple(p.a+rand1, p.b+rand2, p.c+rand3);
 
 	cout << get<0>(normal) << get<1>(normal) << get<2>(normal) << endl;
 	cout << get<0>(n0) << get<1>(n0) << get<2>(n0) << endl;
@@ -97,10 +102,16 @@ Projection flatModelToProjection(Model m, Plane p) {
 	cout << get<0>(e1) << get<1>(e1) << get<2>(e1) << endl;
 	cout << get<0>(e2) << get<1>(e2) << get<2>(e2) << endl;
 
+	float deno1 = sqrt(get<0>(e1)*get<0>(e1)+get<1>(e1)*get<1>(e1)+get<2>(e1)*get<2>(e1));
+	float deno2 = sqrt(get<0>(e2)*get<0>(e2)+get<1>(e2)*get<1>(e2)+get<2>(e2)*get<2>(e2));
+
+	tuple<float, float, float> _e1 = make_tuple(get<0>(e1)/deno1, get<1>(e1)/deno1, get<2>(e1)/deno1);
+	tuple<float, float, float> _e2 = make_tuple(get<0>(e2)/deno2, get<1>(e2)/deno2, get<2>(e2)/deno2);
+
 	Projection proj;
 
 	for (Vertex v: m.vertices) {
-		proj.points.push_back(Point(dotProduct(e1, v.v), dotProduct(e2, v.v)));
+		proj.points.push_back(Point(dotProduct(_e1, v.v), dotProduct(_e2, v.v)));
 	}
 	proj.edges = m.edges;
 
