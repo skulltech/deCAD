@@ -41,6 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -65,6 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -87,18 +89,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_point-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Point Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="algorithms_8h_source.html">algorithms.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a82408a78428be5c4a328264fed22c26a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a82408a78428be5c4a328264fed22c26a">point</a> ()</td></tr>
-<tr class="separator:a82408a78428be5c4a328264fed22c26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44b638afcae44707aba97691f5c16a12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a44b638afcae44707aba97691f5c16a12">point</a> (float a, float b)</td></tr>
-<tr class="separator:a44b638afcae44707aba97691f5c16a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92f2337b839a94ce97dcdb439b4325a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#ad92f2337b839a94ce97dcdb439b4325a">Point</a> ()</td></tr>
+<tr class="separator:ad92f2337b839a94ce97dcdb439b4325a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a41bc3f1dfd34274d8817b2b9fcdad5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a2a41bc3f1dfd34274d8817b2b9fcdad5">Point</a> (float a, float b)</td></tr>
+<tr class="separator:a2a41bc3f1dfd34274d8817b2b9fcdad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76c5855c06d98aed16b5796a9a50bbee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a76c5855c06d98aed16b5796a9a50bbee">print</a> ()</td></tr>
 <tr class="separator:a76c5855c06d98aed16b5796a9a50bbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -106,45 +111,39 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5e1e7ece20fd8f35b5c9a4353ad5c2c0"><td class="memItemLeft" align="right" valign="top">tuple&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a5e1e7ece20fd8f35b5c9a4353ad5c2c0">p</a></td></tr>
 <tr class="separator:a5e1e7ece20fd8f35b5c9a4353ad5c2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ad9aef2989b8706982f73b42be4a2c670"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#ad9aef2989b8706982f73b42be4a2c670">operator&lt;&lt;</a> (ostream &amp;os, const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
+<tr class="separator:ad9aef2989b8706982f73b42be4a2c670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00025">25</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a82408a78428be5c4a328264fed22c26a"></a>
+<p>Definition at line <a class="el" href="algorithms_8h_source.html#l00016">16</a> of file <a class="el" href="algorithms_8h_source.html">algorithms.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad92f2337b839a94ce97dcdb439b4325a"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Point::point </td>
+          <td class="memname">Point::Point </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00029">29</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00021">21</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a44b638afcae44707aba97691f5c16a12"></a>
+<a class="anchor" id="a2a41bc3f1dfd34274d8817b2b9fcdad5"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Point::point </td>
+          <td class="memname">Point::Point </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -161,23 +160,16 @@ Public Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00032">32</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00022">22</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a76c5855c06d98aed16b5796a9a50bbee"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Point::print </td>
@@ -186,14 +178,44 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="ad9aef2989b8706982f73b42be4a2c670"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00036">36</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00024">24</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
 
 </div>
 </div>
@@ -208,11 +230,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00027">27</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8h_source.html#l00018">18</a> of file <a class="el" href="algorithms_8h_source.html">algorithms.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/<a class="el" href="algorithms_8h_source.html">algorithms.h</a></li>
 <li>src/<a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a></li>
 </ul>
 </div><!-- contents -->

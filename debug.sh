@@ -1,10 +1,8 @@
 rm -rf bin
 make
-cp 2Dinput.txt bin
-cp 3Dinput.txt bin
-
+cp *.txt bin
 cd bin
 
 echo "[*] Running."
-./deCAD
+./deCAD $1 $2
 cd ..

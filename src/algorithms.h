@@ -10,7 +10,7 @@ class Vertex {
 	public:
 	tuple <float,float,float> v;
 	Vertex(float a, float b, float c);
-	void print();
+	friend ostream& operator<<(ostream& os, const Vertex& vertex);
 };
 
 class Point {
@@ -19,6 +19,7 @@ class Point {
 	Point();
 	Point(float a, float b);
 	void print();
+	friend ostream& operator<<(ostream& os, const Point& point);
 };
 
 class Plane {
@@ -27,6 +28,7 @@ class Plane {
 	Plane(float a1, float b1, float c1, float d1);
 	void print();
 	float squareNormal();
+	friend ostream& operator<<(ostream& os, const Plane& plane);
 };
 
 class Projection {
@@ -35,6 +37,8 @@ class Projection {
 	vector<tuple<int, int>> edges;
 	Projection();
 	Projection (vector<Point> p, vector<tuple<int, int>> e);
+	void print();
+	friend ostream& operator<<(ostream& os, const Projection& proj);
 };
 
 class Model {
@@ -42,6 +46,7 @@ class Model {
 	vector<Vertex> vertices;
 	vector<tuple<int, int>> edges;
 	Model(vector<Vertex> v, vector<tuple<int, int>> e);
+	friend ostream& operator<<(ostream& os, const Model& model);
 };
 
 Point isometricProjPoint(Vertex v);

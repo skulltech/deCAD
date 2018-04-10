@@ -41,6 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -97,14 +98,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;QtCore&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;QtWidgets&gt;</code><br />
-<code>#include &lt;<a class="el" href="algorithms_8h_source.html">algorithms.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="algorithms_8h_source.html">algorithms.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="io_8h_source.html">io.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for io.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="io_8cpp__incl.png" border="0" usemap="#src_2io_8cpp" alt=""/></div>
 <map name="src_2io_8cpp" id="src_2io_8cpp">
-<area shape="rect" id="node6" href="algorithms_8h.html" title="algorithms.h" alt="" coords="381,80,474,107"/>
+<area shape="rect" id="node8" href="algorithms_8h.html" title="algorithms.h" alt="" coords="557,80,650,107"/>
+<area shape="rect" id="node9" href="io_8h.html" title="io.h" alt="" coords="674,80,717,107"/>
 </map>
 </div>
 </div>
@@ -112,17 +117,17 @@ Include dependency graph for io.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a63c7acef5369ac4e5fd5f852ee1720e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#a63c7acef5369ac4e5fd5f852ee1720e0">FACTOR</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memitem:a63c7acef5369ac4e5fd5f852ee1720e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#a63c7acef5369ac4e5fd5f852ee1720e0">FACTOR</a>&#160;&#160;&#160;100.0</td></tr>
 <tr class="separator:a63c7acef5369ac4e5fd5f852ee1720e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af53f4e8e80403352ed6bbee3166c8613"><td class="memItemLeft" align="right" valign="top">tuple&lt; <a class="el" href="classmodel.html">model</a>, <a class="el" href="classplane.html">plane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#af53f4e8e80403352ed6bbee3166c8613">read3DInputFile</a> (string filename)</td></tr>
-<tr class="separator:af53f4e8e80403352ed6bbee3166c8613"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae027bb15a8ea0d61a00da87171098561"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classprojection.html">projection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#ae027bb15a8ea0d61a00da87171098561">read2DInputFile</a> (string filename)</td></tr>
-<tr class="separator:ae027bb15a8ea0d61a00da87171098561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60b1591800ef404a693405ea1af1e246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#a60b1591800ef404a693405ea1af1e246">drawProjection</a> (<a class="el" href="classprojection.html">projection</a> proj)</td></tr>
-<tr class="separator:a60b1591800ef404a693405ea1af1e246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f3aa12b570a3bd7232b2956d42ddb8f"><td class="memItemLeft" align="right" valign="top">tuple&lt; <a class="el" href="class_model.html">Model</a>, <a class="el" href="class_plane.html">Plane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#a0f3aa12b570a3bd7232b2956d42ddb8f">read3DInputFile</a> (string filename)</td></tr>
+<tr class="separator:a0f3aa12b570a3bd7232b2956d42ddb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1268f0230fba9d2e65ad185d359064"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_projection.html">Projection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#aac1268f0230fba9d2e65ad185d359064">read2DInputFile</a> (string filename)</td></tr>
+<tr class="separator:aac1268f0230fba9d2e65ad185d359064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a555c3ab4161db7125faf4cee27315008"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8cpp.html#a555c3ab4161db7125faf4cee27315008">drawProjection</a> (<a class="el" href="class_projection.html">Projection</a> proj, int argc, char *argv[])</td></tr>
+<tr class="separator:a555c3ab4161db7125faf4cee27315008"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a63c7acef5369ac4e5fd5f852ee1720e0"></a>
@@ -130,58 +135,56 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FACTOR&#160;&#160;&#160;100</td>
+          <td class="memname">#define FACTOR&#160;&#160;&#160;100.0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="io_8cpp_source.html#l00008">8</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
+<p>Definition at line <a class="el" href="io_8cpp_source.html#l00011">11</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a60b1591800ef404a693405ea1af1e246"></a>
+<a class="anchor" id="a555c3ab4161db7125faf4cee27315008"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawProjection </td>
+          <td class="memname">int drawProjection </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classprojection.html">projection</a>&#160;</td>
-          <td class="paramname"><em>proj</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_projection.html">Projection</a>&#160;</td>
+          <td class="paramname"><em>proj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="io_8cpp_source.html#l00079">79</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
+<p>Definition at line <a class="el" href="io_8cpp_source.html#l00085">85</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae027bb15a8ea0d61a00da87171098561"></a>
+<a class="anchor" id="aac1268f0230fba9d2e65ad185d359064"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;<a class="el" href="classprojection.html">projection</a>&gt; read2DInputFile </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="io_8cpp_source.html#l00047">47</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af53f4e8e80403352ed6bbee3166c8613"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tuple&lt;<a class="el" href="classmodel.html">model</a>, <a class="el" href="classplane.html">plane</a>&gt; read3DInputFile </td>
+          <td class="memname">vector&lt;<a class="el" href="class_projection.html">Projection</a>&gt; read2DInputFile </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
@@ -190,7 +193,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="io_8cpp_source.html#l00012">12</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
+<p>Definition at line <a class="el" href="io_8cpp_source.html#l00052">52</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f3aa12b570a3bd7232b2956d42ddb8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple&lt;<a class="el" href="class_model.html">Model</a>, <a class="el" href="class_plane.html">Plane</a>&gt; read3DInputFile </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="io_8cpp_source.html#l00017">17</a> of file <a class="el" href="io_8cpp_source.html">io.cpp</a>.</p>
 
 </div>
 </div>

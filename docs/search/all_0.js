@@ -1,7 +1,26 @@
 var searchData=
 [
-  ['a',['a',['../class_plane.html#a818b693ba813d53949e18aa1416cc12a',1,'Plane::a()'],['../classplane.html#a93c319b577955eca012b2866db926c1f',1,'plane::a()']]],
-  ['algorithms',['algorithms',['../classalgorithms.html',1,'']]],
+  ['a',['a',['../class_plane.html#a818b693ba813d53949e18aa1416cc12a',1,'Plane']]],
+  ['actionflag',['ActionFlag',['../classargs_1_1_action_flag.html',1,'args']]],
+  ['actionflag',['ActionFlag',['../classargs_1_1_action_flag.html#aa0f44a64b894b5cfe2410c9df7addd9d',1,'args::ActionFlag::ActionFlag(Group &amp;group_, const std::string &amp;name_, const std::string &amp;help_, Matcher &amp;&amp;matcher_, Nargs nargs_, std::function&lt; void(const std::vector&lt; std::string &gt; &amp;)&gt; action_, Options options_={})'],['../classargs_1_1_action_flag.html#a0f5aa72ff82d751962e764e4b71bdff6',1,'args::ActionFlag::ActionFlag(Group &amp;group_, const std::string &amp;name_, const std::string &amp;help_, Matcher &amp;&amp;matcher_, std::function&lt; void(const std::string &amp;)&gt; action_, Options options_={})'],['../classargs_1_1_action_flag.html#a811e7632dface8147a93ac5d19a1bd34',1,'args::ActionFlag::ActionFlag(Group &amp;group_, const std::string &amp;name_, const std::string &amp;help_, Matcher &amp;&amp;matcher_, std::function&lt; void()&gt; action_, Options options_={})']]],
+  ['add',['Add',['../classargs_1_1_group.html#ae5951da80c2ca072299740021c43bf6b',1,'args::Group']]],
+  ['addchoices',['addChoices',['../structargs_1_1_help_params.html#ae824aa04e604190bb88aa6316fd4e18b',1,'args::HelpParams']]],
+  ['addcompletion',['AddCompletion',['../classargs_1_1_argument_parser.html#a6dc13a102a56e9d6eab8725711686680',1,'args::ArgumentParser']]],
+  ['addcompletionreply',['AddCompletionReply',['../classargs_1_1_argument_parser.html#a3530d265364fe48c0f20bf02c30c0286',1,'args::ArgumentParser']]],
+  ['adddefault',['addDefault',['../structargs_1_1_help_params.html#a953c55070619de46ce305dc1dcff3854',1,'args::HelpParams']]],
+  ['adddescriptionpostfix',['AddDescriptionPostfix',['../classargs_1_1_named_base.html#accfe47172a0033044d399600f94a00a9',1,'args::NamedBase']]],
+  ['addnewlinebeforedescription',['addNewlineBeforeDescription',['../structargs_1_1_help_params.html#a74a2811f045cd7cb1d2a09a4fd54f7d6',1,'args::HelpParams']]],
   ['algorithms_2ecpp',['algorithms.cpp',['../algorithms_8cpp.html',1,'']]],
-  ['algorithms_2eh',['algorithms.h',['../algorithms_8h.html',1,'']]]
+  ['algorithms_2eh',['algorithms.h',['../algorithms_8h.html',1,'']]],
+  ['all',['All',['../structargs_1_1_group_1_1_validators.html#a0210690955dc4df891d6ff378a2d7f04',1,'args::Group::Validators']]],
+  ['allchildgroups',['AllChildGroups',['../structargs_1_1_group_1_1_validators.html#a19277251ebbf19e7b4df034223c8bf6f',1,'args::Group::Validators']]],
+  ['allocator_5ftype',['allocator_type',['../classargs_1_1_nargs_value_flag.html#a9c828e4bc64b0037e7e50bb98595a47f',1,'args::NargsValueFlag::allocator_type()'],['../classargs_1_1_value_flag_list.html#a3031e51145bbc8cc712ac08eaff4a5bc',1,'args::ValueFlagList::allocator_type()'],['../classargs_1_1_map_flag_list.html#a4f098b2b16c4c3ffc86a4e7bcef62068',1,'args::MapFlagList::allocator_type()'],['../classargs_1_1_positional_list.html#ab9ce7358b29d2adb65ec2a3f11f62144',1,'args::PositionalList::allocator_type()'],['../classargs_1_1_map_positional_list.html#aa961fcc8eee61814bd1fb2b75f0235c1',1,'args::MapPositionalList::allocator_type()']]],
+  ['allornone',['AllOrNone',['../structargs_1_1_group_1_1_validators.html#ac3a812ba1cbd689f039ed5928156d86e',1,'args::Group::Validators']]],
+  ['args',['args',['../namespaceargs.html',1,'']]],
+  ['args_2ehxx',['args.hxx',['../args_8hxx.html',1,'']]],
+  ['argumentparser',['ArgumentParser',['../classargs_1_1_argument_parser.html',1,'args']]],
+  ['argumentparser',['ArgumentParser',['../classargs_1_1_argument_parser.html#a48265b3dc87a042e7c02846dd451b06e',1,'args::ArgumentParser']]],
+  ['atleastone',['AtLeastOne',['../structargs_1_1_group_1_1_validators.html#aaffeaa9014b817ac0f991f4a1160e200',1,'args::Group::Validators']]],
+  ['atmostone',['AtMostOne',['../structargs_1_1_group_1_1_validators.html#a2ba98505409f786976b8510c9872bb8d',1,'args::Group::Validators']]],
+  ['detail',['detail',['../namespaceargs_1_1detail.html',1,'args']]]
 ];

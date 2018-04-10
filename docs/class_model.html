@@ -41,6 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -65,6 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -87,11 +89,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_model-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Model Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="algorithms_8h_source.html">algorithms.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -104,17 +109,19 @@ Public Attributes</h2></td></tr>
 <tr class="separator:abdb2061ed86c51bbf1acf4e3c3a0406d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7bf61dff17797480bf0139af4ff9310"><td class="memItemLeft" align="right" valign="top">vector&lt; tuple&lt; int, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#af7bf61dff17797480bf0139af4ff9310">edges</a></td></tr>
 <tr class="separator:af7bf61dff17797480bf0139af4ff9310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a9576e351425cea6b63b23ac03273f92e"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a9576e351425cea6b63b23ac03273f92e">operator&lt;&lt;</a> (ostream &amp;os, const <a class="el" href="class_model.html">Model</a> &amp;model)</td></tr>
+<tr class="separator:a9576e351425cea6b63b23ac03273f92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00075">75</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8h_source.html#l00044">44</a> of file <a class="el" href="algorithms_8h_source.html">algorithms.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a74d70b165a261d99a0a8cfdb3ba944ae"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Model::Model </td>
@@ -134,14 +141,46 @@ Public Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00058">58</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a9576e351425cea6b63b23ac03273f92e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_model.html">Model</a> &amp;&#160;</td>
+          <td class="paramname"><em>model</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00080">80</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00063">63</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
 
 </div>
 </div>
@@ -156,7 +195,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00078">78</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8h_source.html#l00047">47</a> of file <a class="el" href="algorithms_8h_source.html">algorithms.h</a>.</p>
 
 </div>
 </div>
@@ -170,11 +209,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00077">77</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8h_source.html#l00046">46</a> of file <a class="el" href="algorithms_8h_source.html">algorithms.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/<a class="el" href="algorithms_8h_source.html">algorithms.h</a></li>
 <li>src/<a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a></li>
 </ul>
 </div><!-- contents -->

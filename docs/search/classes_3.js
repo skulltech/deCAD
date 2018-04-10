@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['vertex',['vertex',['../classvertex.html',1,'vertex'],['../class_vertex.html',1,'Vertex']]]
+  ['eitherflag',['EitherFlag',['../structargs_1_1_either_flag.html',1,'args']]],
+  ['error',['Error',['../classargs_1_1_error.html',1,'args']]],
+  ['extraerror',['ExtraError',['../classargs_1_1_extra_error.html',1,'args']]]
 ];

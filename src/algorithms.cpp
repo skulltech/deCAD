@@ -13,30 +13,31 @@ Vertex::Vertex(float a, float b, float c) {
 		v = make_tuple(a,b,c);
 }
 	
-void Vertex::print() { cout << "Vertex ["<< (get<0>(v))<< ", "<< (get<1>(v))<< ", "<<(get<2>(v))<< "]"<< endl; }
-
+ostream& operator<<(ostream& os, const Vertex& vertex) {
+	os << "Vertex ["<< (get<0>(vertex.v))<< ", "<< (get<1>(vertex.v))<< ", "<< (get<2>(vertex.v))<< "]";
+	return os;
+}
 
 Point::Point(){}
 Point::Point(float a, float b) { p = make_tuple(a, b); }
 	
-void Point::print() {
-	cout << "Point ["<< (get<0>(p))<< ", "<< (get<1>(p))<< "]"<< endl;
+ostream& operator<<(ostream& os, const Point& point) {
+	os << "Point ["<< (get<0>(point.p))<< ", "<< (get<1>(point.p))<< "]";
+	return os;
 }
-
-
 
 Plane::Plane(float a1, float b1, float c1, float d1) {
 	a = a1; b = b1; c = c1; d = d1;
 }
 
-void Plane::print() {
-	cout<< "Plane ["<< a<< "x + "<< b<< "y + "<< c<< "z + "<< d<< " = 0]"<< endl;
+ostream& operator<<(ostream& os, const Plane& plane) {
+	os << "Plane ["<< plane.a<< "x + "<< plane.b<< "y + "<< plane.c<< "z + "<< plane.d<< " = 0]";
+	return os;
 }
 
 float Plane::squareNormal() {
 	return (a*a + b*b + c*c); 
 }
-
 
 Projection::Projection() { }
 
@@ -45,13 +46,28 @@ Projection::Projection (vector<Point> p, vector<tuple<int, int>> e) {
 	edges = e;
 }
 
+ostream& operator<<(ostream& os, const Projection& proj) {
+	os << "Projection with " << proj.points.size() << " points and " << proj.edges.size() << " edges" << endl;
+	os << "The Points are:" << endl;
+	for (Point p: proj.points) {
+		os << p << endl;
+	}	
+	return os;
+}
 
 Model::Model(vector<Vertex> v, vector<tuple<int, int>> e) {
 	vertices = v;
 	edges = e;
 }
 
-
+ostream& operator<<(ostream& os, const Model& model) {
+	os << "Model with " << model.vertices.size() << " vertices and " << model.edges.size() << " edges" << endl;
+	os << "The Vertices are:" << endl;
+	for (Vertex v: model.vertices) {
+		os << v << endl;
+	}	
+	return os;
+}
 
 Point isometricProjPoint(Vertex v) {
 	float aMatrix[3][3] = {{sqrt(3), 0, -sqrt(3)}, {1, 2, 1}, {sqrt(2), -sqrt(2), sqrt(2)}};
@@ -92,15 +108,8 @@ Projection flatModelToProjection(Model m, Plane p) {
 	tuple<float, float, float> normal = make_tuple(p.a, p.b, p.c);
 	tuple<float, float, float> n0 = make_tuple(p.a+rand1, p.b+rand2, p.c+rand3);
 
-	cout << get<0>(normal) << get<1>(normal) << get<2>(normal) << endl;
-	cout << get<0>(n0) << get<1>(n0) << get<2>(n0) << endl;
-
-
 	tuple<float, float, float> e1 = crossProduct(normal, n0);
 	tuple<float, float, float> e2 = crossProduct(normal, e1);
-
-	cout << get<0>(e1) << get<1>(e1) << get<2>(e1) << endl;
-	cout << get<0>(e2) << get<1>(e2) << get<2>(e2) << endl;
 
 	float deno1 = sqrt(get<0>(e1)*get<0>(e1)+get<1>(e1)*get<1>(e1)+get<2>(e1)*get<2>(e1));
 	float deno2 = sqrt(get<0>(e2)*get<0>(e2)+get<1>(e2)*get<1>(e2)+get<2>(e2)*get<2>(e2));
@@ -133,7 +142,6 @@ Projection modelToProjection(Model m, Plane p) {
 		Vertex v1((get<0>(v.v)-get<0>(projw.v)), (get<1>(v.v)-get<1>(projw.v)), (get<2>(v.v)-get<2>(projw.v)));
 		
 		vertices.push_back(v1);
-		v1.print();
 	}
 
 	return flatModelToProjection(Model(vertices, m.edges), p);
@@ -170,7 +178,7 @@ Model projectionsToModel(Projection p1, Projection p2, Projection p3) {
 	vector<Vertex> vertices;
 
 	for (int i=0; i<p1.points.size(); i++) {
-		vertices.push_back(Vertex(get<0>(v1.at(i).p), get<0>(v2.at(i).p), get<0>(v3.at(i).p)));
+		vertices.push_back(Vertex(get<0>(v1.at(i).p), get<1>(v2.at(i).p), get<0>(v3.at(i).p)));
 	}
 
 	vector<tuple<int, int>> edges;

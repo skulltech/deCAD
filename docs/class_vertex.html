@@ -41,6 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -65,6 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -87,34 +89,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_vertex-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Vertex Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="algorithms_8h_source.html">algorithms.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7d8a5fb58b2f9642581f6eaa2006c0e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a7d8a5fb58b2f9642581f6eaa2006c0e0">Vertex</a> (float a, float b, float c)</td></tr>
 <tr class="separator:a7d8a5fb58b2f9642581f6eaa2006c0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc2531c8f9b2eed32478f4fba4603e88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#abc2531c8f9b2eed32478f4fba4603e88">print</a> ()</td></tr>
-<tr class="separator:abc2531c8f9b2eed32478f4fba4603e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a15ad23af927c61fc1a9ff72902d973a6"><td class="memItemLeft" align="right" valign="top">tuple&lt; float, float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a15ad23af927c61fc1a9ff72902d973a6">v</a></td></tr>
 <tr class="separator:a15ad23af927c61fc1a9ff72902d973a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a6e0f3f6a0390484058a2557394788ceb"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a6e0f3f6a0390484058a2557394788ceb">operator&lt;&lt;</a> (ostream &amp;os, const <a class="el" href="class_vertex.html">Vertex</a> &amp;vertex)</td></tr>
+<tr class="separator:a6e0f3f6a0390484058a2557394788ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00011">11</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8h_source.html#l00009">9</a> of file <a class="el" href="algorithms_8h_source.html">algorithms.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a7d8a5fb58b2f9642581f6eaa2006c0e0"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Vertex::Vertex </td>
@@ -140,19 +145,14 @@ Public Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00015">15</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00012">12</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="abc2531c8f9b2eed32478f4fba4603e88"></a>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a6e0f3f6a0390484058a2557394788ceb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -160,20 +160,31 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Vertex::print </td>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td>
+          <td class="paramname"><em>vertex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00019">19</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00016">16</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
 
 </div>
 </div>
@@ -188,11 +199,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="algorithms_8cpp_source.html#l00013">13</a> of file <a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="algorithms_8h_source.html#l00011">11</a> of file <a class="el" href="algorithms_8h_source.html">algorithms.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/<a class="el" href="algorithms_8h_source.html">algorithms.h</a></li>
 <li>src/<a class="el" href="algorithms_8cpp_source.html">algorithms.cpp</a></li>
 </ul>
 </div><!-- contents -->

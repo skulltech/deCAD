@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['v',['v',['../class_vertex.html#a15ad23af927c61fc1a9ff72902d973a6',1,'Vertex::v()'],['../classvertex.html#a35295b219f58848876bd6a63150a2d73',1,'vertex::v()']]],
-  ['vertices',['vertices',['../class_model.html#abdb2061ed86c51bbf1acf4e3c3a0406d',1,'Model::vertices()'],['../classmodel.html#a267902557657d5c5bdf7aa6aa69d5c1f',1,'model::vertices()']]]
+  ['help',['help',['../classargs_1_1_base.html#a9cdbbcdfa8e764c25f94dfe2c99c3b24',1,'args::Base']]],
+  ['helpindent',['helpindent',['../structargs_1_1_help_params.html#a27a6e218f71a17d1ece742f1bca43fe9',1,'args::HelpParams']]],
+  ['helpparams',['helpParams',['../classargs_1_1_argument_parser.html#a0b78172b72e892a6776d2d7dec8e8b46',1,'args::ArgumentParser']]]
 ];
